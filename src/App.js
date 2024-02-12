@@ -1,5 +1,16 @@
+// eslint-disable-next-line
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./Components/Layout/Navbar";
+
 function App() {
-  return <div className="text-3xl font-bold underline ">Hello world!</div>;
+  return (
+    <Router>
+      <div className="flex flex-col justify-between h-screen ">
+        <Navbar />
+        <main>Content...</main>
+      </div>
+    </Router>
+  );
 }
 
 export default App;
