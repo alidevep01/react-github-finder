@@ -27,15 +27,21 @@ export const GithubProvider = ({ children }) => {
         Authorization: `token ${GITHUB_TOKEN}`,
       },
     });
-    console.log(params);
+
     const { items } = await response.json();
     dispatch({
       type: "GITHUB_USER",
       payload: items,
     });
-    console.log(items);
   };
 
+  //clears user
+  const clearUser = () =>
+    dispatch({
+      type: "CLEAR_USER",
+    });
+
+  // set Loading
   const setLoading = () =>
     dispatch({
       type: "SET_LOADING",
@@ -47,6 +53,7 @@ export const GithubProvider = ({ children }) => {
         users: state.users,
         loading: state.loading,
         searchUsers,
+        clearUser,
       }}
     >
       {children}

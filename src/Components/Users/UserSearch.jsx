@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import GithubContext from "../../Context/GithubContext";
 
 function UserSearch() {
-  const { searchUsers, users } = useContext(GithubContext);
+  const { searchUsers, users, clearUser } = useContext(GithubContext);
   const [text, setText] = useState("");
 
   const handleChange = (e) => {
@@ -50,7 +50,10 @@ btn btn-lg"
       </div>
       {users.length > 0 && (
         <div>
-          <button className="btn btn-ghost btn-lg">Clear</button>
+          <button onClick={clearUser} className="btn btn-ghost btn-lg">
+            {" "}
+            Clear
+          </button>
         </div>
       )}
     </div>
